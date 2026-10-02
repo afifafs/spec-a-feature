@@ -80,6 +80,56 @@ The catalog of use cases begins below, grouped by area. Each area is an unnumber
 
 The note below is **not** the catalog. It records scope context only: a few Project Pulse capabilities not yet specified as use cases, and work that is **deferred or on hold**. Anything that has been specified appears as a `UC-<AREA>-<slug>` below — not in this note.
 
+
+
+### **UC-WAR-Submission-Reminder**
+
+**UC ID and Name:** UC-WAR-Submission-Reminder
+**Created By:** Afifa Satter
+**Date Created:** 10/1/2026
+**Primary Actor:** course admin
+**Secondary Actors:**
+**Trigger:** Sunday 10:00PM hits
+**Description:** User has not submitted the WAR by Sunday 10:00PM, Project Pulse scans for these users. 
+
+**Preconditions:**
+- PRE-1. User exists in a group. 
+- PRE-2. User has not submitted WAR for the week. 
+
+**Postconditions:**
+- POST-1. System scans for unsubmitted users. 
+
+**Main Success Scenario:**
+1. The clock hits 10:00PM on Sunday night.
+2. System runs a routine check to see who has submitted.
+3. System takes note of students with no submission. 
+
+**Extensions:** 
+EX-No-Team - A student who is not assigned to a team will not be notified. 
+EX-Closed-Submission - Weekly submission has closed, do not send. 
+EX-Deleted-Submission - If a student deletes, the system should send a reminder. 
+EX-Multiple-Reminders - Multiple nudges will not send. 
+EX-Mail-Rejection - If the mail address is rejected, notify the students account in project pulse. 
+**Priority:** Medium
+**Frequency of Use:** Weekly. 
+**Business Rules:** BR-role-based-access — System only scans students. 
+BR-automation - System only preforms once a week. No more, no less. 
+
+**Associated Information:**
+
+Details:
+
+| Property name | Data type | Editability | Security/access concerns | Reference to glossary |
+| ---- | ---- | ---- | ---- | ---- |
+| rubric name | String |  |  |  |
+| criteria (each: criterion name, description, max score) |  |  |  |  |
+
+**Related Use Cases:** 
+**Assumptions:**
+**Open Issues:**
+
+
+
 **Existing Project Pulse capabilities** (used but not yet specified as use cases):
 - The course admin creates a course (course sections are created in the Course Section area below)
 - The course admin transfers teams or students between course sections
